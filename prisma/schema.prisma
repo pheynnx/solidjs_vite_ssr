@@ -1,0 +1,22 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "cockroachdb"
+    url      = env("DATABASE_URL")
+}
+
+model Post {
+    id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    featured   Boolean  @db.Bool
+    published  Boolean  @db.Bool
+    slug       String   @unique
+    date       DateTime @db.Timestamp()
+    title      String   @unique @db.String()
+    series     String   @db.String()
+    categories String[] @db.String()
+    markdown   String   @db.String()
+}
