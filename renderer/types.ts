@@ -1,3 +1,4 @@
+import { IncomingHttpHeaders } from "http";
 import { Component } from "solid-js";
 import type { PageContextBuiltIn } from "vite-plugin-ssr/types";
 
@@ -7,8 +8,9 @@ export type PageProps = {};
 
 export type PageContext = PageContextBuiltIn<Page> & {
   pageProps: PageProps;
-  documentProps: {
-    title: string;
+  headers: IncomingHttpHeaders;
+  documentProps?: {
+    title?: string;
     description?: string;
   };
 };

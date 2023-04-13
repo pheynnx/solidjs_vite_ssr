@@ -2,7 +2,7 @@ import { PageContext } from "~/renderer/types";
 import { getRedisCache } from "../../server/db/redis";
 
 async function onBeforeRender(pageContext: PageContext) {
-  console.log("here");
+  // console.log(pageContext.headers);
 
   const cache = await getRedisCache();
 

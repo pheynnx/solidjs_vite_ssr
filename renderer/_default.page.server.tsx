@@ -10,7 +10,7 @@ import { PageContext } from "./types";
 import "./main.scss";
 
 // See https://vite-plugin-ssr.com/data-fetching
-const passToClient = ["pageProps", "documentProps"];
+const passToClient = ["pageProps", "documentProps", "headers"];
 
 function render(pageContext: PageContext) {
   const { Page, pageProps } = pageContext;
@@ -18,11 +18,13 @@ function render(pageContext: PageContext) {
   console.log("server", pageContext.urlOriginal);
 
   // See https://vite-plugin-ssr.com/head
-  const { documentProps } = pageContext;
+  const { documentProps, headers } = pageContext;
   const title = (documentProps && documentProps.title) || "Vite SSR app";
   const description =
     (documentProps && documentProps.description) ||
     "App using Vite + vite-plugin-ssr";
+
+  console.log("SERVER RENDER", headers);
 
   // @ts-ignore
   if (Page) {
