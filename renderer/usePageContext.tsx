@@ -1,23 +1,22 @@
-import { createContext, useContext } from "solid-js";
+import { JSXElement, createContext, createSignal, useContext } from "solid-js";
 import { PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient } from "vite-plugin-ssr/types";
 import { PageContext } from "./types";
-
-export { PageContextProvider };
-export { usePageContext };
 
 const Context = createContext();
 
 function PageContextProvider({
-  pageContext,
+  value,
   children,
 }: {
-  pageContext: PageContextBuiltInClient & PageContext;
+  value: PageContextBuiltInClient & PageContext;
   children: any;
 }) {
-  return <Context.Provider value={pageContext}>{children}</Context.Provider>;
+  return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 
 function usePageContext() {
-  const pageContext = useContext(Context);
-  return pageContext;
+  return useContext(Context);
 }
+
+export { PageContextProvider };
+export { usePageContext };

@@ -3,7 +3,7 @@ import { usePageContext } from "../../renderer/usePageContext";
 
 const Page: Component = (props) => {
   const pageContext = usePageContext();
-  console.log(pageContext);
+  console.log("context", pageContext);
 
   const [values, setValues] = createSignal<any[]>();
   onMount(async () => {

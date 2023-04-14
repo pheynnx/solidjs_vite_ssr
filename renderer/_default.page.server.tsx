@@ -15,16 +15,12 @@ const passToClient = ["pageProps", "documentProps", "headers"];
 function render(pageContext: PageContext) {
   const { Page, pageProps } = pageContext;
 
-  console.log("server", pageContext.urlOriginal);
-
   // See https://vite-plugin-ssr.com/head
   const { documentProps, headers } = pageContext;
   const title = (documentProps && documentProps.title) || "Vite SSR app";
   const description =
     (documentProps && documentProps.description) ||
     "App using Vite + vite-plugin-ssr";
-
-  console.log("SERVER RENDER", headers);
 
   // @ts-ignore
   if (Page) {

@@ -14,8 +14,6 @@ async function render(pageContext: PageContextBuiltInClient & PageContext) {
   const content = document.getElementById("root") as HTMLElement;
   const { Page, pageProps, documentProps, headers } = pageContext;
 
-  // console.log("CLIENT", headers);
-
   document.title = documentProps?.title || "Vite SSR app";
 
   // CLIENT SIDE ROUTING MIDDLEWARE
@@ -37,8 +35,7 @@ async function render(pageContext: PageContextBuiltInClient & PageContext) {
     } else {
       solidRender(
         () => (
-          <PageContextProvider pageContext={pageContext}>
-            <h3>solidRender</h3>
+          <PageContextProvider value={pageContext}>
             <Page {...pageProps} />
           </PageContextProvider>
         ),
