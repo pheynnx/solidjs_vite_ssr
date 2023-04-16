@@ -23,7 +23,7 @@
     "typescript": "^5.0.4",
     "vite": "^4.2.1",
     "vite-plugin-solid": "^2.7.0",
-    "vite-plugin-ssr": "^0.4.112"
+    "vite-plugin-ssr": "^0.4.113"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",

@@ -6,11 +6,13 @@ import type { PageContextBuiltInClientWithServerRouting as PageContextBuiltInCli
 import type { PageContext } from "./types";
 import { PageContextProvider } from "./usePageContext";
 
-let layoutReady = false;
+let dispose: () => void;
 
 const [route, setRoute] = createSignal<Route | null>(null);
 
 async function render(pageContext: PageContextBuiltInClient & PageContext) {
+  console.log("[CLIENT RENDER]");
+
   const content = document.getElementById("root") as HTMLElement;
   const { Page, pageProps, documentProps, headers } = pageContext;
 
@@ -26,16 +28,22 @@ async function render(pageContext: PageContextBuiltInClient & PageContext) {
 
   setRoute({ Page, pageProps });
 
-  if (content.innerHTML === "" || !pageContext.isHydration) {
-    if (content.innerHTML !== "") {
-      if (!layoutReady) {
-        hydrate(() => <PageLayout route={() => route()} />, content!);
-        layoutReady = true;
-      }
-    } else {
-      solidRender(
+  if (dispose) dispose();
+
+  if (pageContext.isHydration) {
+    if (content.innerHTML === "") {
+      dispose = solidRender(
         () => (
-          <PageContextProvider value={pageContext}>
+          <PageContextProvider route={() => route()} count={7}>
+            <Page {...pageProps} />
+          </PageContextProvider>
+        ),
+        content!
+      );
+    } else {
+      dispose = hydrate(
+        () => (
+          <PageContextProvider route={() => route()} count={7}>
             <Page {...pageProps} />
           </PageContextProvider>
         ),
@@ -43,10 +51,14 @@ async function render(pageContext: PageContextBuiltInClient & PageContext) {
       );
     }
   } else {
-    if (!layoutReady) {
-      hydrate(() => <PageLayout route={() => route()} />, content!);
-      layoutReady = true;
-    }
+    dispose = solidRender(
+      () => (
+        <PageContextProvider route={() => route()} count={7}>
+          <Page {...pageProps} />
+        </PageContextProvider>
+      ),
+      content!
+    );
   }
 }
 

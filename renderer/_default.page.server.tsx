@@ -5,14 +5,18 @@ import {
   dangerouslySkipEscape,
   stampPipe,
 } from "vite-plugin-ssr/server";
+import type { PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient } from "vite-plugin-ssr/types";
 import { PageContext } from "./types";
 
 import "./main.scss";
+import { PageContextProvider } from "./usePageContext";
 
 // See https://vite-plugin-ssr.com/data-fetching
 const passToClient = ["pageProps", "documentProps", "headers"];
 
-function render(pageContext: PageContext) {
+function render(pageContext: PageContextBuiltInClient & PageContext) {
+  console.log("[SERVER RENDER]");
+
   const { Page, pageProps } = pageContext;
 
   // See https://vite-plugin-ssr.com/head
@@ -22,10 +26,20 @@ function render(pageContext: PageContext) {
     (documentProps && documentProps.description) ||
     "App using Vite + vite-plugin-ssr";
 
+  console.log(Page);
+
   // @ts-ignore
   if (Page) {
     const { pipe } = renderToStream(() => (
-      <PageLayout route={() => ({ Page, pageProps })} />
+      <PageContextProvider
+        count={7}
+        route={() => ({
+          Page,
+          pageProps,
+        })}
+      >
+        <Page {...pageProps} />
+      </PageContextProvider>
     ));
     stampPipe(pipe, "node-stream");
 

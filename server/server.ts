@@ -19,6 +19,8 @@ async function startServer() {
 
   app.use(compression());
 
+  app.use("/api/admin", adminApiRouter);
+
   if (isProduction) {
     const sirv = (await import("sirv")).default;
     app.use(sirv(`${root}/dist/client`));
@@ -32,8 +34,6 @@ async function startServer() {
     ).middlewares;
     app.use(viteDevMiddleware);
   }
-
-  app.use("/api/admin", adminApiRouter);
 
   app.get("*", async (req, res, next) => {
     // pass custom http values to renderPage()

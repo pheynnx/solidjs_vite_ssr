@@ -44,8 +44,8 @@ dependencies:
     specifier: ^2.7.0
     version: 2.7.0(solid-js@1.7.3)(vite@4.2.1)
   vite-plugin-ssr:
-    specifier: ^0.4.112
-    version: 0.4.112(vite@4.2.1)
+    specifier: ^0.4.113
+    version: 0.4.113(vite@4.2.1)
 
 devDependencies:
   cross-env:
@@ -187,7 +187,7 @@ packages:
       '@babel/helper-plugin-utils': 7.20.2
       debug: 4.3.4
       lodash.debounce: 4.0.8
-      resolve: 1.22.2
+      resolve: 1.22.3
       semver: 6.3.0
     transitivePeerDependencies:
       - supports-color
@@ -1349,8 +1349,8 @@ packages:
     resolution: {integrity: sha512-IxlOMD5gOM0WfFGdeR98jHKiC82Ad1tUnSjvLS5jnRkfMEKBI+YzHA32Umw8W3Ccp5N4fNEX229BW6RaRpxRWQ==}
     dev: false
 
-  /@brillout/vite-plugin-import-build@0.2.14:
-    resolution: {integrity: sha512-4iWC0nYBRh8PO95oU4/e8815eSAH2ZBgCggSfOqyeSnRIfnNwAZFhp2Dwui1xV6KVdXx/fcWp2UQUUl7q+I5pQ==}
+  /@brillout/vite-plugin-import-build@0.2.16:
+    resolution: {integrity: sha512-3rbNIgOUIPf8JrV3lozG3lpIe+xnujUANpMaf9aPVGnZV5SVKOSrvLk83+2Y8/nhHgLYTBplNZTW3DTD6J29ag==}
     dependencies:
       '@brillout/import': 0.2.3
     dev: false
@@ -2114,8 +2114,8 @@ packages:
     dev: true
     optional: true
 
-  /babel-plugin-jsx-dom-expressions@0.36.9(@babel/core@7.21.4):
-    resolution: {integrity: sha512-4ACO10PoUvqRcBEErbhVGv5vAHXgkz7epvULHfqJXw5TPtDYwjhmhGxGNGSK6220ec/b85ElLrGHlqQiJxI0WQ==}
+  /babel-plugin-jsx-dom-expressions@0.36.10(@babel/core@7.21.4):
+    resolution: {integrity: sha512-QA2k/14WGw+RgcGGnEuLWwnu4em6CGhjeXtjvgOYyFHYS2a+CzPeaVQHDOlfuiBcjq/3hWMspHMIMnPEOIzdBg==}
     peerDependencies:
       '@babel/core': ^7.20.12
     dependencies:
@@ -2171,7 +2171,7 @@ packages:
       '@babel/core': ^7.0.0
     dependencies:
       '@babel/core': 7.21.4
-      babel-plugin-jsx-dom-expressions: 0.36.9(@babel/core@7.21.4)
+      babel-plugin-jsx-dom-expressions: 0.36.10(@babel/core@7.21.4)
 
   /binary-extensions@2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -2209,9 +2209,9 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001478
-      electron-to-chromium: 1.4.361
+      electron-to-chromium: 1.4.365
       node-releases: 2.0.10
-      update-browserslist-db: 1.0.10(browserslist@4.21.5)
+      update-browserslist-db: 1.0.11(browserslist@4.21.5)
 
   /buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
@@ -2457,8 +2457,8 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /electron-to-chromium@1.4.361:
-    resolution: {integrity: sha512-VocVwjPp05HUXzf3xmL0boRn5b0iyqC7amtDww84Jb1QJNPBc7F69gJyEeXRoriLBC4a5pSyckdllrXAg4mmRA==}
+  /electron-to-chromium@1.4.365:
+    resolution: {integrity: sha512-FRHZO+1tUNO4TOPXmlxetkoaIY8uwHzd1kKopK/Gx2SKn1L47wJXWD44wxP5CGRyyP98z/c8e1eBzJrgPeiBOg==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -3167,8 +3167,8 @@ packages:
     dev: true
     optional: true
 
-  /resolve@1.22.2:
-    resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
+  /resolve@1.22.3:
+    resolution: {integrity: sha512-P8ur/gp/AmbEzjr729bZnLjXK5Z+4P0zhIJgBgzqRih7hL7BOukHGtSTA3ACMY467GRFz3duQsi0bDZdR7DKdw==}
     hasBin: true
     dependencies:
       is-core-module: 2.12.0
@@ -3454,7 +3454,7 @@ packages:
       terser: 5.16.9
       undici: 5.21.2
       vite: 4.2.1(@types/node@18.15.11)(sass@1.62.0)
-      vite-plugin-inspect: 0.7.21(rollup@3.20.2)(vite@4.2.1)
+      vite-plugin-inspect: 0.7.22(rollup@3.20.2)(vite@4.2.1)
       vite-plugin-solid: 2.7.0(solid-js@1.7.3)(vite@4.2.1)
       wait-on: 6.0.1(debug@4.3.4)
     transitivePeerDependencies:
@@ -3662,8 +3662,8 @@ packages:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
     engines: {node: '>= 0.8'}
 
-  /update-browserslist-db@1.0.10(browserslist@4.21.5):
-    resolution: {integrity: sha512-OztqDenkfFkbSG+tRxBeAnCVPckDBcvibKd35yDONx6OU8N7sqgwc7rCbkJ/WcYtVRZ4ba68d6byhC21GFh7sQ==}
+  /update-browserslist-db@1.0.11(browserslist@4.21.5):
+    resolution: {integrity: sha512-dCwEFf0/oT85M1fHBg4F0jtLwJrutGoHSQXCh7u4o2t1drG+c0a9Flnqww6XUKSfQMPpJBRjU8d4RXB09qtvaA==}
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
@@ -3687,8 +3687,8 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  /vite-plugin-inspect@0.7.21(rollup@3.20.2)(vite@4.2.1):
-    resolution: {integrity: sha512-zIyTGkoj76EnDV/Hj20cYjRCtOvzab6EX2tcKy4QWe/qrW/Apxuqc2nZgv4BkTg/bXyL1/1cozlxzx7GfAh9yw==}
+  /vite-plugin-inspect@0.7.22(rollup@3.20.2)(vite@4.2.1):
+    resolution: {integrity: sha512-Z4y3MPuvn//0/XcpNLwTBqjfSt+c2utIFZu8Dw+nbR2HrPoIrKHedvSuqC8mLzxOpRKRoW60HWvZUDz8J2zRIA==}
     engines: {node: '>=14'}
     peerDependencies:
       vite: ^3.1.0 || ^4.0.0
@@ -3724,8 +3724,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /vite-plugin-ssr@0.4.112(vite@4.2.1):
-    resolution: {integrity: sha512-AQ0qVXwjFczMzIqtFC+FJurWClJdZEuhV0/4zACt8qoNHtaLjTCSeNrDmjpERaPSqZVn1A2tfuBeSWenvPt/ig==}
+  /vite-plugin-ssr@0.4.113(vite@4.2.1):
+    resolution: {integrity: sha512-TE9nhi6KXzL8hJxVc9DebnlC1fXLD5xe+xS/u+WwnO/+Kq4pQJNy7xkEhy0EERQK7Za24FC7ZjYy1b7SRN/anA==}
     engines: {node: '>=12.19.0'}
     hasBin: true
     peerDependencies:
@@ -3737,7 +3737,7 @@ packages:
     dependencies:
       '@brillout/import': 0.2.3
       '@brillout/json-serializer': 0.5.3
-      '@brillout/vite-plugin-import-build': 0.2.14
+      '@brillout/vite-plugin-import-build': 0.2.16
       acorn: 8.8.2
       cac: 6.7.14
       es-module-lexer: 0.10.5
@@ -3776,7 +3776,7 @@ packages:
       '@types/node': 18.15.11
       esbuild: 0.17.16
       postcss: 8.4.21
-      resolve: 1.22.2
+      resolve: 1.22.3
       rollup: 3.20.2
       sass: 1.62.0
     optionalDependencies:
