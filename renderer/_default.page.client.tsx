@@ -1,10 +1,8 @@
 import { createSignal } from "solid-js";
 import { hydrate, render as solidRender } from "solid-js/web";
-import { PageLayout } from "./PageLayout";
-import type { Route } from "./PageLayout";
 import type { PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient } from "vite-plugin-ssr/types";
 import type { PageContext } from "./types";
-import { PageContextProvider } from "./usePageContext";
+import { PageContextProvider, Route } from "./usePageContext";
 
 let dispose: () => void;
 
@@ -30,35 +28,20 @@ async function render(pageContext: PageContextBuiltInClient & PageContext) {
 
   if (dispose) dispose();
 
+  const layout = () => (
+    <PageContextProvider pageContext={pageContext} route={() => route()}>
+      <Page {...pageProps} />
+    </PageContextProvider>
+  );
+
   if (pageContext.isHydration) {
     if (content.innerHTML === "") {
-      dispose = solidRender(
-        () => (
-          <PageContextProvider route={() => route()} count={7}>
-            <Page {...pageProps} />
-          </PageContextProvider>
-        ),
-        content!
-      );
+      dispose = solidRender(() => layout(), content!);
     } else {
-      dispose = hydrate(
-        () => (
-          <PageContextProvider route={() => route()} count={7}>
-            <Page {...pageProps} />
-          </PageContextProvider>
-        ),
-        content!
-      );
+      dispose = hydrate(() => layout(), content!);
     }
   } else {
-    dispose = solidRender(
-      () => (
-        <PageContextProvider route={() => route()} count={7}>
-          <Page {...pageProps} />
-        </PageContextProvider>
-      ),
-      content!
-    );
+    dispose = solidRender(() => layout(), content!);
   }
 }
 

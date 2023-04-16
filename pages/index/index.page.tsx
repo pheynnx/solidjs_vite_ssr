@@ -9,6 +9,7 @@ const Page: Component<Props> = (props) => {
   // console.log(props);
   const pageContext = usePageContext();
   console.log("CONTEXT", pageContext);
+  console.log("CONTEXT TITLE", pageContext.documentProps?.title);
 
   const [value, setValue] = createSignal(1);
   const [version, setVersion] = createSignal("");

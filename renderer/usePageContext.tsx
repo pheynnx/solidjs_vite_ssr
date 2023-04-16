@@ -1,4 +1,5 @@
 import {
+  Accessor,
   Component,
   JSX,
   JSXElement,
@@ -7,22 +8,35 @@ import {
   useContext,
 } from "solid-js";
 import { PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient } from "vite-plugin-ssr/types";
-import { PageContext } from "./types";
+import { PageContext, PageProps } from "./types";
 
-const Context = createContext<number>(0);
-// const Context = createContext<PageContextBuiltInClient & PageContext>(
-//   {} as PageContextBuiltInClient & PageContext
-// );
+const Context = createContext<PageContextBuiltInClient & PageContext>(
+  {} as PageContextBuiltInClient & PageContext
+);
 
-function PageContextProvider(props: { count: number; route: any }) {
+export interface Route {
+  Page: Component;
+  pageProps: PageProps;
+}
+
+interface Props {
+  pageContext: PageContextBuiltInClient & PageContext;
+  route: Accessor<Route | null>;
+}
+
+interface Children {
+  children: JSX.Element;
+}
+
+const PageContextProvider: Component<Props> = (props) => {
   const renderedRoute = () => {
     const { Page, pageProps } = props.route() ?? {};
     return Page && <Page {...pageProps} />;
   };
 
   return (
-    <Context.Provider value={props.count}>
-      <>
+    <Context.Provider value={props.pageContext}>
+      {/* <>
         <nav>
           <a class="navitem" href="/">
             Home
@@ -37,19 +51,11 @@ function PageContextProvider(props: { count: number; route: any }) {
             System
           </a>
         </nav>
-      </>
+      </> */}
       <Content>{renderedRoute()}</Content>
     </Context.Provider>
   );
-}
-
-// interface Props {
-//   route: Accessor<Route | null>;
-// }
-
-interface Children {
-  children: JSX.Element;
-}
+};
 
 const Content: Component<Children> = (props) => {
   return <div>{props.children}</div>;

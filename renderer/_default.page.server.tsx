@@ -1,5 +1,4 @@
 import { generateHydrationScript, renderToStream } from "solid-js/web";
-import { PageLayout } from "./PageLayout";
 import {
   escapeInject,
   dangerouslySkipEscape,
@@ -26,13 +25,12 @@ function render(pageContext: PageContextBuiltInClient & PageContext) {
     (documentProps && documentProps.description) ||
     "App using Vite + vite-plugin-ssr";
 
-  console.log(Page);
-
   // @ts-ignore
+  // Page will be undefined is page is client side only
   if (Page) {
     const { pipe } = renderToStream(() => (
       <PageContextProvider
-        count={7}
+        pageContex={pageContext}
         route={() => ({
           Page,
           pageProps,
@@ -43,35 +41,33 @@ function render(pageContext: PageContextBuiltInClient & PageContext) {
     ));
     stampPipe(pipe, "node-stream");
 
-    return escapeInject`<!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="${description}" />
-        <title>${title}</title>
-        ${dangerouslySkipEscape(generateHydrationScript())}
-      </head>
-      <body>
-        <div id="root">${pipe}</div>
-      </body>
-    </html>`;
+    return htmlInjection(description, title, true, pipe);
   } else {
-    return escapeInject`<!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="${description}" />
-        <title>${title}</title>
-      </head>
-      <body>
-        <div id="root"></div>
-        <noscript>Enable JavaScript in your browser</noscript>
-      </body>
-    </html>`;
+    return htmlInjection(description, title, false, "");
   }
 }
+
+// Maybe pass <noscript> some how?
+const htmlInjection = (
+  description: string,
+  title: string,
+  scripts: boolean,
+  pipe: ((writable: { write: (v: string) => void }) => void) | ""
+) => {
+  return escapeInject`<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="${description}" />
+    <title>${title}</title>
+    ${dangerouslySkipEscape(generateHydrationScript())}
+  </head>
+  <body>
+    <div id="root">${pipe}</div>
+  </body>
+</html>`;
+};
 
 export { render };
 export { passToClient };
