@@ -1,9 +1,8 @@
 import { Component, createSignal, onMount, useContext } from "solid-js";
-import { usePageContext } from "../../renderer/usePageContext";
+import { usePageContext } from "../../renderer/PageLayout";
 
 const Page: Component = (props) => {
   const pageContext = usePageContext();
-  console.log("CONTEXT", pageContext);
 
   const [values, setValues] = createSignal<any[]>();
   onMount(async () => {

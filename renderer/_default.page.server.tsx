@@ -6,50 +6,48 @@ import {
 } from "vite-plugin-ssr/server";
 import type { PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient } from "vite-plugin-ssr/types";
 import { PageContext } from "./types";
-
-import "./main.scss";
-import { PageContextProvider } from "./usePageContext";
+import { PageContextProvider } from "./PageLayout";
 
 // See https://vite-plugin-ssr.com/data-fetching
-const passToClient = ["pageProps", "documentProps", "headers"];
+const passToClient = ["pageProps", "documentProps", "headers", "redirectTo"];
 
 function render(pageContext: PageContextBuiltInClient & PageContext) {
   console.log("[SERVER RENDER]");
+
+  // if (pageContext.urlPathname == "/blog") {
+  //   return {
+  //     pageContext: {
+  //       redirectTo: "/",
+  //     },
+  //   };
+  // }
 
   const { Page, pageProps } = pageContext;
 
   // See https://vite-plugin-ssr.com/head
   const { documentProps, headers } = pageContext;
-  const title = (documentProps && documentProps.title) || "Vite SSR app";
-  const description =
-    (documentProps && documentProps.description) ||
-    "App using Vite + vite-plugin-ssr";
+  const title = (documentProps && documentProps.title) || "EAC";
 
   // @ts-ignore
-  // Page will be undefined is page is client side only
+  // Page will be undefined if page is client side only
   if (Page) {
     const { pipe } = renderToStream(() => (
       <PageContextProvider
-        pageContex={pageContext}
-        route={() => ({
-          Page,
-          pageProps,
-        })}
+        navigation={!pageContext.urlPathname.includes("admin")}
+        pageContext={pageContext}
       >
         <Page {...pageProps} />
       </PageContextProvider>
     ));
     stampPipe(pipe, "node-stream");
 
-    return htmlInjection(description, title, true, pipe);
+    return htmlInjection(title, true, pipe);
   } else {
-    return htmlInjection(description, title, false, "");
+    return htmlInjection(title, false, "");
   }
 }
 
-// Maybe pass <noscript> some how?
 const htmlInjection = (
-  description: string,
   title: string,
   scripts: boolean,
   pipe: ((writable: { write: (v: string) => void }) => void) | ""
@@ -59,12 +57,19 @@ const htmlInjection = (
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="${description}" />
+    <meta name="description" content="EricArthurC" />
     <title>${title}</title>
-    ${dangerouslySkipEscape(generateHydrationScript())}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    ${scripts ? dangerouslySkipEscape(generateHydrationScript()) : ""}
   </head>
   <body>
     <div id="root">${pipe}</div>
+    ${
+      scripts
+        ? ""
+        : dangerouslySkipEscape("<noscript>Enable JavaScript</noscript>")
+    }
   </body>
 </html>`;
 };

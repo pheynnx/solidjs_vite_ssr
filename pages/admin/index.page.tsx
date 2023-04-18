@@ -1,8 +1,7 @@
 export function onBeforeRender() {
-  console.log("here");
-
   return {
     pageContext: {
+      redirectTo: "/admin/login",
       documentProps: {
         title: "Admin EC",
       },

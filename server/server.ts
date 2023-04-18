@@ -41,8 +41,15 @@ async function startServer() {
       urlOriginal: req.originalUrl,
       headers: req.headers,
     };
+
     const pageContext = await renderPage(pageContextInit);
+
+    // if (pageContext.redirectTo) {
+    //   return res.redirect(307, pageContext.redirectTo);
+    // }
+
     const { httpResponse } = pageContext;
+
     if (!httpResponse) return next();
 
     const { statusCode, contentType } = httpResponse;

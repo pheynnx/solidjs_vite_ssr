@@ -9,6 +9,7 @@ export type PageProps = {};
 export type PageContext = PageContextBuiltIn<Page> & {
   pageProps: PageProps;
   headers: IncomingHttpHeaders;
+  redirectTo?: string;
   documentProps?: {
     title?: string;
     description?: string;

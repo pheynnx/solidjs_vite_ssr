@@ -2,8 +2,6 @@ import { PageContext } from "~/renderer/types";
 import { getRedisCache } from "../../server/db/redis";
 
 async function onBeforeRender(pageContext: PageContext) {
-  // console.log(pageContext.headers);
-
   const cache = await getRedisCache();
 
   let pageProps;
@@ -16,7 +14,7 @@ async function onBeforeRender(pageContext: PageContext) {
     pageContext: {
       pageProps,
       documentProps: {
-        title: "Taco",
+        title: "Home",
       },
     },
   };

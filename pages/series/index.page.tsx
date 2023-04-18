@@ -1,13 +1,12 @@
 import { Component } from "solid-js";
-import { usePageContext } from "../../renderer/usePageContext";
+import { usePageContext } from "../../renderer/PageLayout";
 
 const Page: Component = () => {
   const pageContext = usePageContext();
-  console.log("CONTEXT", pageContext);
 
   return (
     <>
-      <h1>About</h1>
+      <h1>Series</h1>
       <p>A vite-plugin-ssr app using Solid.</p>
     </>
   );
@@ -19,7 +18,7 @@ export function onBeforeRender() {
   return {
     pageContext: {
       documentProps: {
-        title: "About",
+        title: "Series",
       },
     },
   };

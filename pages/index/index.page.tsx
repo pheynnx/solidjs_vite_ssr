@@ -1,17 +1,14 @@
 import { Component, For, createSignal, onMount } from "solid-js";
-import { usePageContext } from "../../renderer/usePageContext";
+import { usePageContext } from "../../renderer/PageLayout";
 
 interface Props {
   posts: any;
 }
 
 const Page: Component<Props> = (props) => {
-  // console.log(props);
   const pageContext = usePageContext();
-  console.log("CONTEXT", pageContext);
-  console.log("CONTEXT TITLE", pageContext.documentProps?.title);
 
-  const [value, setValue] = createSignal(1);
+  const [value, setValue] = createSignal(Math.floor(Math.random() * 101));
   const [version, setVersion] = createSignal("");
 
   onMount(async () => {
@@ -26,7 +23,9 @@ const Page: Component<Props> = (props) => {
     <div>
       {version()}
       <h1>{value()}</h1>
-      <button onClick={() => setValue((p) => p + 1)}>Randomize</button>
+      <button onClick={() => setValue((p) => Math.floor(Math.random() * 101))}>
+        Randomize
+      </button>
       <For each={props.posts} fallback={<></>}>
         {(post, index) => (
           <div>
