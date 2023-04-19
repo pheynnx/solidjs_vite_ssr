@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import { usePageContext } from "../../renderer/PageLayout";
+import { usePageContext } from "@/PageLayout";
 
 const Page: Component = () => {
   const pageContext = usePageContext();

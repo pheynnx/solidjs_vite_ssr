@@ -1,18 +1,19 @@
-import solid from "vite-plugin-solid";
+import solidPluigin from "vite-plugin-solid";
 import ssr from "vite-plugin-ssr/plugin";
 import { UserConfig } from "vite";
 import path from "path";
 
 const config: UserConfig = {
-  plugins: [solid({ ssr: true }), ssr()],
+  resolve: {
+    alias: {
+      "~": __dirname,
+      "@": path.resolve(__dirname, "./renderer"),
+    },
+  },
+  plugins: [solidPluigin({ ssr: true, solid: { hydratable: true } }), ssr()],
   build: {
     // @ts-ignore
     polyfillDynamicImport: false,
-  },
-  resolve: {
-    alias: {
-      "~/": path.resolve(__dirname, "./*"),
-    },
   },
 };
 
