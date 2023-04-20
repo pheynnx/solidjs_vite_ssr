@@ -53,4 +53,23 @@ p {
   padding: 0;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  margin-right: 3%;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.container-heading {
+  color: var(--container-header);
+  text-transform: capitalize;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  line-height: 1;
+}
+
 @import "./components/navbar";
+@import "./components/card";

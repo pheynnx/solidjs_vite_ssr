@@ -1,0 +1,130 @@
+.series-cards-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 600px;
+}
+
+.series-card-anchor {
+  padding: 11px 10px;
+  margin: 10px 8px;
+  text-decoration: none;
+  background: var(--card-series-background);
+  border-radius: 0.25rem;
+  border: 1px solid var(--card-series-border);
+  line-height: 1;
+  text-align: center;
+
+  &:hover {
+    background: var(--card-series-hover-background);
+  }
+
+  &:hover span {
+    color: var(--card-series-hover-span);
+  }
+}
+
+.series-card-info {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 400;
+  color: var(--card-series);
+}
+
+.cards-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 400px;
+}
+
+.featured-posts {
+  padding: 20px 20px 0px 20px;
+  background: var(--card-featured-background);
+  border: 1px solid var(--card-featured-border);
+  border-radius: 0.4rem;
+  margin-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.card-header-info {
+  width: 100%;
+  display: grid;
+  margin-bottom: 7px;
+}
+
+.card-header-anchor {
+  text-decoration: none;
+}
+
+.card-title {
+  color: var(--card-title);
+  font-size: 21px;
+  font-weight: bold;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    color: var(--card-title-hover);
+  }
+}
+
+.card-date {
+  margin-top: 3px;
+  font-size: 16px;
+  color: var(--card-date);
+}
+
+.card-categories {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 5px;
+  row-gap: 6px;
+  column-gap: 6px;
+  justify-content: center;
+}
+
+.card-category {
+  text-decoration: none;
+  display: grid;
+}
+
+.card-category-info {
+  background: var(--card-category-info);
+  border-radius: 0.25rem;
+  font-size: 13px;
+  color: #fafafa;
+  padding: 4px 8px;
+
+  &:hover {
+    background: var(--card-category-hover-background);
+  }
+}
+
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+  .card-category:not(:last-child) {
+    margin-right: 6px;
+  }
+}
