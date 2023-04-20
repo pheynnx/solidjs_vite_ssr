@@ -3,17 +3,15 @@ import compression from "compression";
 import { renderPage } from "vite-plugin-ssr/server";
 import { root } from "./root.ts";
 import { prisma } from "./db/prisma.ts";
-import { redisClient } from "./db/redis.ts";
+import { initializePublishedPostCache } from "./db/redis.ts";
 import adminApiRouter from "./routers/api/admin.ts";
 
 const isProduction = process.env.NODE_ENV === "production";
 
 async function startServer() {
   const posts = await prisma.post.findMany();
-  await redisClient.connect();
-  await redisClient.set("cache", JSON.stringify(posts));
-  console.log(`💾 startup: posts cached in redis`);
-  await redisClient.disconnect();
+
+  await initializePublishedPostCache(posts);
 
   const app = express();
 
