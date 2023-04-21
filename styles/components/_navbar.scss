@@ -29,9 +29,6 @@
   display: none;
 }
 
-.navbar-links {
-}
-
 .navbar-link {
   align-self: center;
   padding: 0px 6px;
@@ -49,9 +46,6 @@
   @media (hover: hover) {
     &:hover {
       color: var(--navbar-link-hover);
-      // background-color: var(--navbar-link-hover-background);
-      // padding: 4px 6px;
-      // border-radius: 0.2em;
     }
   }
 

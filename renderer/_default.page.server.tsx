@@ -8,23 +8,13 @@ import type { PageContextBuiltInClientWithServerRouting as PageContextBuiltInCli
 import { PageContext } from "./types";
 import { PageContextProvider } from "./PageLayout";
 
-// See https://vite-plugin-ssr.com/data-fetching
 const passToClient = ["pageProps", "documentProps", "headers", "redirectTo"];
 
 function render(pageContext: PageContextBuiltInClient & PageContext) {
   console.log("[SERVER RENDER]");
 
-  // if (pageContext.urlPathname == "/blog") {
-  //   return {
-  //     pageContext: {
-  //       redirectTo: "/",
-  //     },
-  //   };
-  // }
-
   const { Page, pageProps } = pageContext;
 
-  // See https://vite-plugin-ssr.com/head
   const { documentProps, headers } = pageContext;
   const title = (documentProps && documentProps.title) || "EAC";
 

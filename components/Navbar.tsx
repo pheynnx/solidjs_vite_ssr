@@ -1,4 +1,5 @@
 import { Component } from "solid-js";
+import Link from "./Link";
 
 const Navigation: Component = () => {
   return (
@@ -32,18 +33,18 @@ const Navigation: Component = () => {
           </svg>
         </div>
         <div class="navbar-links">
-          <a class="navbar-link" href="/">
+          <Link class="navbar-link" href="/">
             Blog
-          </a>
-          <a class="navbar-link" href="/series">
+          </Link>
+          <Link class="navbar-link" href="/series">
             Series
-          </a>
-          <a class="navbar-link" href="/rng">
+          </Link>
+          <Link class="navbar-link" href="/rng">
             RNG
-          </a>
-          <a class="navbar-link" href="/readme">
+          </Link>
+          <Link class="navbar-link" href="/readme">
             Readme.md
-          </a>
+          </Link>
         </div>
       </nav>
     </div>
