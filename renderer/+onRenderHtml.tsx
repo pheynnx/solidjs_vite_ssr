@@ -8,14 +8,12 @@ import type { PageContextBuiltInClientWithServerRouting as PageContextBuiltInCli
 import { PageContext } from "./types";
 import { PageContextProvider } from "./PageLayout";
 
-const passToClient = ["pageProps", "documentProps", "headers", "redirectTo"];
-
 function render(pageContext: PageContextBuiltInClient & PageContext) {
   console.log("[SERVER RENDER]");
 
   const { Page, pageProps } = pageContext;
 
-  const { documentProps, headers } = pageContext;
+  const { documentProps, headers, cookies } = pageContext;
   const title = (documentProps && documentProps.title) || "EAC";
 
   // @ts-ignore
@@ -31,19 +29,33 @@ function render(pageContext: PageContextBuiltInClient & PageContext) {
     ));
     stampPipe(pipe, "node-stream");
 
-    return htmlInjection(title, true, pipe);
+    return htmlInjection(
+      title,
+      true,
+      pipe,
+      cookies["theme"] || "dark",
+      cookies["color"] || "green"
+    );
   } else {
-    return htmlInjection(title, false, "");
+    return htmlInjection(
+      title,
+      false,
+      "",
+      cookies["theme"] || "dark",
+      cookies["color"] || "green"
+    );
   }
 }
 
 const htmlInjection = (
   title: string,
   scripts: boolean,
-  pipe: ((writable: { write: (v: string) => void }) => void) | ""
+  pipe: ((writable: { write: (v: string) => void }) => void) | "",
+  theme: string,
+  color: string
 ) => {
   return escapeInject`<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="${theme}" data-color="${color}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -64,5 +76,4 @@ const htmlInjection = (
 </html>`;
 };
 
-export { render };
-export { passToClient };
+export default render;

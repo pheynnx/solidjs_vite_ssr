@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import cookieParser from "cookie-parser";
 import compression from "compression";
 import { renderPage } from "vite-plugin-ssr/server";
 import { root } from "./root.ts";
@@ -15,6 +16,7 @@ async function startServer() {
 
   const app = express();
 
+  app.use(cookieParser());
   app.use(compression());
 
   app.use("/api/admin", adminApiRouter);
@@ -38,6 +40,7 @@ async function startServer() {
     const pageContextInit = {
       urlOriginal: req.originalUrl,
       headers: req.headers,
+      cookies: req.cookies,
     };
 
     const pageContext = await renderPage(pageContextInit);

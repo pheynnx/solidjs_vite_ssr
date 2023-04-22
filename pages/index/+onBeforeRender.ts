@@ -20,4 +20,4 @@ async function onBeforeRender(pageContext: PageContext) {
   };
 }
 
-export { onBeforeRender };
+export default onBeforeRender;

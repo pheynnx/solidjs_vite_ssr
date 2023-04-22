@@ -51,5 +51,4 @@ async function render(pageContext: PageContextBuiltInClient & PageContext) {
   }
 }
 
-export { render };
-export const clientRouting = true;
+export default render;

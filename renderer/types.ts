@@ -9,7 +9,12 @@ export type PageProps = {};
 export type PageContext = PageContextBuiltIn<Page> & {
   pageProps: PageProps;
   headers: IncomingHttpHeaders;
+  cookies: any;
   redirectTo?: string;
+  themeSetter?: {
+    theme: "dark" | "light";
+    color: "green" | "blue" | "red" | "orange" | "pink" | "purple";
+  };
   documentProps?: {
     title?: string;
     description?: string;

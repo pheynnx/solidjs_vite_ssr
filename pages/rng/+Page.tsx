@@ -15,14 +15,4 @@ const Page: Component = () => {
   );
 };
 
-export { Page };
-
-export function onBeforeRender() {
-  return {
-    pageContext: {
-      documentProps: {
-        title: "RNG",
-      },
-    },
-  };
-}
+export default Page;

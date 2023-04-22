@@ -12,14 +12,4 @@ const Page: Component = () => {
   );
 };
 
-export { Page };
-
-export function onBeforeRender() {
-  return {
-    pageContext: {
-      documentProps: {
-        title: "Series",
-      },
-    },
-  };
-}
+export default Page;

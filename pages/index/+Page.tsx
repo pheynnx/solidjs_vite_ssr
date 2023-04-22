@@ -27,4 +27,4 @@ const Page: Component<Props> = (props) => {
   );
 };
 
-export { Page };
+export default Page;
