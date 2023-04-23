@@ -3,6 +3,13 @@ import { Post } from "@prisma/client";
 
 const redisClient = createClient();
 
+redisClient.on("error", (err) => {
+  if (err.code === "ECONNREFUSED") {
+    console.log("💾[redis][startup]: is the redis server not running?");
+    process.exit(1);
+  }
+});
+
 export async function getRedisCache() {
   await redisClient.connect();
 
@@ -20,7 +27,7 @@ export async function initializePublishedPostCache(posts: Post[]) {
 
   await redisClient.set("posts_published", JSON.stringify(publishedPosts));
 
-  console.log(`💾 startup: posts cached in redis`);
+  console.log(`💾[redis][startup]: posts cached in redis`);
 
   await redisClient.disconnect();
 }

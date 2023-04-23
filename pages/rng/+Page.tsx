@@ -6,9 +6,12 @@ const Page: Component = () => {
   const [value, setValue] = createSignal(0);
 
   return (
-    <div>
+    <div class="main-container">
       <h1>{value()}</h1>
-      <button onClick={() => setValue((p) => Math.floor(Math.random() * 101))}>
+      <button
+        class="button"
+        onClick={() => setValue((p) => Math.floor(Math.random() * 101))}
+      >
         Randomize
       </button>
     </div>

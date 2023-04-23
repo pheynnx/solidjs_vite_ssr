@@ -41,13 +41,14 @@ async function startServer() {
       urlOriginal: req.originalUrl,
       headers: req.headers,
       cookies: req.cookies,
+      redirectTo: "",
     };
 
     const pageContext = await renderPage(pageContextInit);
 
-    // if (pageContext.redirectTo) {
-    //   return res.redirect(307, pageContext.redirectTo);
-    // }
+    if (pageContext.redirectTo) {
+      return res.redirect(307, pageContext.redirectTo);
+    }
 
     const { httpResponse } = pageContext;
 
@@ -62,7 +63,7 @@ async function startServer() {
 
   const port = process.env.PORT || 3000;
   app.listen(port);
-  console.log(`🔶 startup: listening on http://localhost:${port}`);
+  console.log(`🔶[express][startup]: listening on http://localhost:${port}`);
 }
 
 startServer();

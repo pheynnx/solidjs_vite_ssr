@@ -1,0 +1,100 @@
+.blog-container {
+  margin: 0;
+}
+
+.markdown-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 56rem;
+  word-wrap: break-word;
+  //   font-size: 20px;
+  font-weight: 400;
+}
+
+pre {
+  border-radius: 0.3rem;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+code {
+  font-family: "Inter", sans-serif;
+  //   font-size: 16px;
+  font-weight: 500;
+  padding: 3px 5px;
+  border-radius: 0.3rem;
+}
+
+pre code {
+  display: block;
+  overflow-x: auto;
+  padding: 1em 2em;
+  border-radius: 0.3rem;
+  line-height: normal;
+  color: #fff;
+}
+
+.hljs {
+  background: #221a0f;
+  color: #d3af86;
+}
+
+/* Kimbie Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #d6baad;
+}
+
+/* Kimbie Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-meta {
+  color: #dc3958;
+}
+
+/* Kimbie Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-deletion,
+.hljs-link {
+  color: #f79a32;
+}
+
+/* Kimbie Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #889b4a;
+}
+
+/* Kimbie Purple */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-function {
+  color: #98676a;
+}
+
+/* Kimbie Yellow */
+.hljs-title,
+.hljs-section,
+.hljs-attribute {
+  color: #f06431;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

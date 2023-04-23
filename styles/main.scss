@@ -71,8 +71,11 @@ p {
   line-height: 1;
 }
 
+@import "./components/button";
+
 @import "./components/navbar";
 @import "./components/sidebar";
 @import "./components/card";
+@import "./components/markdown";
 
 @import "_sizing.scss";

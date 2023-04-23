@@ -8,17 +8,25 @@ import type { PageContextBuiltInClientWithServerRouting as PageContextBuiltInCli
 import { PageContext } from "./types";
 import { PageContextProvider } from "./PageLayout";
 
+const redirectToRootList = ["/blog"];
+
 function render(pageContext: PageContextBuiltInClient & PageContext) {
   console.log("[SERVER RENDER]");
 
-  const { Page, pageProps } = pageContext;
-
-  const { documentProps, headers, cookies } = pageContext;
+  const { Page, pageProps, documentProps, headers, cookies } = pageContext;
   const title = (documentProps && documentProps.title) || "EAC";
 
-  // @ts-ignore
-  // Page will be undefined if page is client side only
+  if (redirectToRootList.includes(pageContext.urlPathname)) {
+    return {
+      pageContext: {
+        redirectTo: "/",
+      },
+    };
+  }
+
   if (Page) {
+    // @ts-ignore
+    // Page will be undefined if page is client side only
     const { pipe } = renderToStream(() => (
       <PageContextProvider
         navigation={!pageContext.urlPathname.includes("admin")}
