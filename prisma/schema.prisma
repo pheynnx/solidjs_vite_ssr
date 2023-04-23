@@ -16,6 +16,7 @@ model Post {
     slug       String   @unique
     date       DateTime @db.Timestamp()
     title      String   @unique @db.String()
+    snippet    String   @db.String()
     series     String   @db.String()
     categories String[] @db.String()
     markdown   String   @db.String()

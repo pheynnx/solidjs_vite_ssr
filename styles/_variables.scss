@@ -2,9 +2,11 @@
 :root {
   // Html
   --html-color: #ffffff;
-  --background-color: #010409;
+  --background-color: #111111;
 
   // Navbar
+  --navbar-background: #000;
+  --navbar-border-color: #333;
   --navbar-link: #ffffff;
   --navbar-link-hover: #00dc82;
   --navbar-link-hover-background: #3f3f46;
@@ -13,9 +15,9 @@
   --navbar-settings: #fff;
 
   // Card
-  --card-title: #fff;
+  --card-title: #c8c8c8;
   --card-title-hover: #00dc82;
-  --card-date: #fff;
+  --card-date: #c8c8c8;
   --card-category-info: #3f3f46;
   --card-category-hover-background: #71717a;
 
@@ -51,11 +53,13 @@
 }
 
 [data-theme="light"] {
-  --html-color: #2d2d2d;
-  --background-color: #f7fdff;
+  --html-color: #666666;
+  --background-color: #fafafa;
 
   // Navbar
-  --navbar-link: #2d2d2d;
+  --navbar-background: #ffffff;
+  --navbar-border-color: #eaeaea;
+  --navbar-link: #666666;
   --navbar-link-hover-background: #3f3f46;
   --navbar-logo-inner: #2d2d2d;
   --navbar-settings: #2d2d2d;

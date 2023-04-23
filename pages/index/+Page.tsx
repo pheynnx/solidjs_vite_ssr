@@ -14,12 +14,13 @@ const Page: Component<Props> = (props) => {
   return (
     <div class="main-container">
       <div class="cards-container">
-        <div class="featured-posts">
+        {/* <div class="featured-posts">
           <For each={props.posts.filter((p) => p.featured)} fallback={<></>}>
             {(post, _index) => <Card post={post} />}
           </For>
-        </div>
-        <For each={props.posts.filter((p) => !p.featured)} fallback={<></>}>
+        </div> */}
+        <For each={props.posts} fallback={<></>}>
+          {/* <For each={props.posts.filter((p) => !p.featured)} fallback={<></>}> */}
           {(post, _index) => <Card post={post} />}
         </For>
       </div>

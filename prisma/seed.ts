@@ -9,6 +9,10 @@ async function Seed() {
       date: new Date("2022-12-06"),
       title: "To New Seasons",
       series: "blog",
+      snippet: `This is placeholder text, weha we like pizza time and good slime.
+      Maplestory was my life for way to long and now I am a turkey fat boy
+      with a poopy head for a body. But thats not even the best part of
+      waking up.. its folgers in your cup you ween.`,
       categories: [
         "remix",
         "blog",

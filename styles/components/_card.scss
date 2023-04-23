@@ -33,11 +33,10 @@
 }
 
 .cards-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto;
   justify-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 400px;
 }
 
 .featured-posts {
@@ -52,9 +51,9 @@
 .card {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  justify-items: center;
-  align-items: center;
+  // text-align: center;
+  // justify-items: center;
+  // align-items: center;
   width: 100%;
   margin-bottom: 20px;
   -webkit-user-select: none; /* Safari */
@@ -67,6 +66,7 @@
   width: 100%;
   display: grid;
   margin-bottom: 7px;
+  line-height: 1.425;
 }
 
 .card-header-anchor {
@@ -75,8 +75,8 @@
 
 .card-title {
   color: var(--card-title);
-  font-size: 21px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 700;
   word-wrap: break-word;
   overflow-wrap: break-word;
   -webkit-hyphens: auto;
@@ -93,7 +93,11 @@
 }
 
 .card-date {
-  margin-top: 3px;
+  font-size: 16px;
+  color: var(--card-date);
+}
+
+.card-snippet {
   font-size: 16px;
   color: var(--card-date);
 }
@@ -101,10 +105,10 @@
 .card-categories {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 5px;
+  // margin: 0 5px;
   row-gap: 6px;
   column-gap: 6px;
-  justify-content: center;
+  // justify-content: center;
 }
 
 .card-category {

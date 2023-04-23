@@ -5,7 +5,6 @@ import Sidebar from "./Sidebar";
 const Navigation: Component = () => {
   return (
     <>
-      <Sidebar />
       <div class="navigation-container">
         <nav class="navbar" id="navbar">
           <div class="navbar-logo">
@@ -49,6 +48,7 @@ const Navigation: Component = () => {
               Readme.md
             </Link>
           </div>
+          <Sidebar />
         </nav>
       </div>
     </>
