@@ -1,6 +1,6 @@
 // @ts-nocheck
-import { Component, onMount } from "solid-js";
 import Cookies from "js-cookie";
+import { Component, onMount } from "solid-js";
 
 import Link from "./Link";
 

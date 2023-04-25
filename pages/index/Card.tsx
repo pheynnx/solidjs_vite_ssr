@@ -1,6 +1,7 @@
-import { Post } from "@prisma/client";
-import { Component, For } from "solid-js";
 import date from "date-and-time";
+import { Component, For } from "solid-js";
+
+import { Post } from "@prisma/client";
 
 interface Props {
   post: Post;

@@ -1,5 +1,6 @@
-import { PageContext } from "@/types";
 import { getRedisCache } from "~/server/db/redis";
+
+import { PageContext } from "@/types";
 
 async function onBeforeRender(pageContext: PageContext) {
   const cache = await getRedisCache();

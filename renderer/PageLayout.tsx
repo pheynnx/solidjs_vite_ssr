@@ -1,15 +1,10 @@
-import {
-  Component,
-  JSX,
-  createContext,
-  createSignal,
-  useContext,
-} from "solid-js";
+import "~/styles/main.scss";
+
+import { Component, createContext, JSX, useContext } from "solid-js";
 import { PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient } from "vite-plugin-ssr/types";
-import { PageContext } from "./types";
 import Navigation from "~/components/Navbar";
 
-import "~/styles/main.scss";
+import { PageContext } from "./types";
 
 const Context = createContext<PageContextBuiltInClient & PageContext>(
   {} as PageContextBuiltInClient & PageContext

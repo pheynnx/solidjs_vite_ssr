@@ -1,7 +1,8 @@
+import date from "date-and-time";
 import { Component, For } from "solid-js";
+
 import { usePageContext } from "@/PageLayout";
 import { Post } from "@prisma/client";
-import date from "date-and-time";
 
 interface Props {
   post: Post;

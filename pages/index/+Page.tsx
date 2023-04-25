@@ -1,7 +1,8 @@
 import { Component, For } from "solid-js";
-import { usePageContext } from "@/PageLayout";
 
+import { usePageContext } from "@/PageLayout";
 import { Post } from "@prisma/client";
+
 import Card from "./Card";
 
 interface Props {

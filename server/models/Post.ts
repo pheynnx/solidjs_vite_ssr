@@ -1,4 +1,4 @@
-import { PrismaClient, Post } from "@prisma/client";
+import { Post, PrismaClient } from "@prisma/client";
 
 // helpers
 

@@ -1,10 +1,12 @@
-import express, { Router } from "express";
-import cookieParser from "cookie-parser";
+import chalk from "chalk";
 import compression from "compression";
+import cookieParser from "cookie-parser";
+import express from "express";
 import { renderPage } from "vite-plugin-ssr/server";
-import { root } from "./root.ts";
+
 import { prisma } from "./db/prisma.ts";
 import { initializePublishedPostCache } from "./db/redis.ts";
+import { root } from "./root.ts";
 import adminApiRouter from "./routers/api/admin.ts";
 
 const isProduction = process.env.NODE_ENV === "production";
@@ -63,7 +65,9 @@ async function startServer() {
 
   const port = process.env.PORT || 3000;
   app.listen(port);
-  console.log(`🔶[express][startup]: listening on http://localhost:${port}`);
+  console.log(
+    chalk.green(`🔶 [express][startup]: listening on http://localhost:${port}`)
+  );
 }
 
 startServer();

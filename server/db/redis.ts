@@ -1,11 +1,15 @@
+import chalk from "chalk";
 import { createClient } from "redis";
+
 import { Post } from "@prisma/client";
 
 const redisClient = createClient();
 
 redisClient.on("error", (err) => {
   if (err.code === "ECONNREFUSED") {
-    console.log("💾[redis][startup]: is the redis server not running?");
+    console.log(
+      chalk.red("💾 [redis][startup]: is the redis server not running?")
+    );
     process.exit(1);
   }
 });
@@ -27,7 +31,7 @@ export async function initializePublishedPostCache(posts: Post[]) {
 
   await redisClient.set("posts_published", JSON.stringify(publishedPosts));
 
-  console.log(`💾[redis][startup]: posts cached in redis`);
+  console.log(chalk.green(`💾 [redis][startup]: posts cached in redis`));
 
   await redisClient.disconnect();
 }

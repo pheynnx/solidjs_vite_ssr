@@ -1,18 +1,18 @@
 import { generateHydrationScript, renderToStream } from "solid-js/web";
 import {
-  escapeInject,
   dangerouslySkipEscape,
+  escapeInject,
   stampPipe,
 } from "vite-plugin-ssr/server";
-import type { PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient } from "vite-plugin-ssr/types";
-import { PageContext } from "./types";
+
 import { PageContextProvider } from "./PageLayout";
+import { PageContext } from "./types";
+
+import type { PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient } from "vite-plugin-ssr/types";
 
 const redirectToRootList = ["/blog"];
 
 function render(pageContext: PageContextBuiltInClient & PageContext) {
-  console.log("[SERVER RENDER]");
-
   const { Page, pageProps, documentProps, headers, cookies } = pageContext;
   const title = (documentProps && documentProps.title) || "EAC";
 

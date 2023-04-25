@@ -1,8 +1,8 @@
-import MarkdownIt from "markdown-it";
 import hljs from "highlight.js";
+import MarkdownIt from "markdown-it";
 import { default as anchorPlugin } from "markdown-it-anchor";
-
 import { getRedisCache } from "~/server/db/redis";
+
 import { PageContext } from "@/types";
 import { Post } from "@prisma/client";
 

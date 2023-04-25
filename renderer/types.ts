@@ -1,5 +1,6 @@
 import { IncomingHttpHeaders } from "http";
 import { Component } from "solid-js";
+
 import type { PageContextBuiltIn } from "vite-plugin-ssr/types";
 
 type Page = Component<PageProps>;
@@ -20,3 +21,8 @@ export type PageContext = PageContextBuiltIn<Page> & {
     description?: string;
   };
 };
+
+export interface Route {
+  Page: Component;
+  pageProps: PageProps;
+}
