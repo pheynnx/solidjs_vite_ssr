@@ -46,7 +46,7 @@ const Navigation: Component = () => {
               RNG
             </Link>
             <Link class="navbar-link" href="/readme">
-              Readme.md
+              Readme
             </Link>
           </div>
           <Sidebar />

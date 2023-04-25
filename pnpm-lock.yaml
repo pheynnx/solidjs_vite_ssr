@@ -23,8 +23,8 @@ dependencies:
     specifier: ^1.4.6
     version: 1.4.6
   date-and-time:
-    specifier: ^2.4.3
-    version: 2.4.3
+    specifier: ^3.0.0
+    version: 3.0.0
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -68,8 +68,8 @@ dependencies:
     specifier: ^2.7.0
     version: 2.7.0(solid-js@1.7.3)(vite@4.3.1)
   vite-plugin-ssr:
-    specifier: ^0.4.116
-    version: 0.4.116(vite@4.3.1)
+    specifier: ^0.4.117
+    version: 0.4.117(vite@4.3.1)
 
 devDependencies:
   '@types/cookie-parser':
@@ -2224,7 +2224,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001481
-      electron-to-chromium: 1.4.370
+      electron-to-chromium: 1.4.371
       node-releases: 2.0.10
       update-browserslist-db: 1.0.11(browserslist@4.21.5)
 
@@ -2434,8 +2434,8 @@ packages:
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
 
-  /date-and-time@2.4.3:
-    resolution: {integrity: sha512-xkS/imTmsyEdpp9ie5oV5UWolg3XkYWNySbT2W4ESWr6v4V8YrsHbhpk9fIeQcr0NFTnYbQJLXlgU1zrLItysA==}
+  /date-and-time@3.0.0:
+    resolution: {integrity: sha512-uuzXp/mvv6jEMLiP5QzERSQPzHqYnv9i8NZ8BS5kYeB2sakv74EewQiCS4Ahxwq3In+9fYZhGztuDHRVzIOkFQ==}
     dev: false
 
   /debug@2.6.9:
@@ -2494,8 +2494,8 @@ packages:
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  /electron-to-chromium@1.4.370:
-    resolution: {integrity: sha512-c+wzD4sCYQeNeasbnArwsU3ig6+lR6bwQmxfMjB6bx+XoopVSPFp+7ZLxqa90MTC+Tq9QQ5l7zsMNG9GgMBorg==}
+  /electron-to-chromium@1.4.371:
+    resolution: {integrity: sha512-jlBzY4tFcJaiUjzhRTCWAqRvTO/fWzjA3Bls0mykzGZ7zvcMP7h05W6UcgzfT9Ca1SW2xyKDOFRyI0pQeRNZGw==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2884,8 +2884,8 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
 
-  /joi@17.9.1:
-    resolution: {integrity: sha512-FariIi9j6QODKATGBrEX7HZcja8Bsh3rfdGYy/Sb65sGlZWK/QWesU1ghk7aJWDj95knjXlQfSmzFSPPkLVsfw==}
+  /joi@17.9.2:
+    resolution: {integrity: sha512-Itk/r+V4Dx0V3c7RLFdRh12IOjySm2/WGPMubBT92cQvRfYZhPM2W0hZlctjj72iES8jsRCwp7S/cRmWBnJ4nw==}
     dependencies:
       '@hapi/hoek': 9.3.0
       '@hapi/topo': 5.1.0
@@ -3885,8 +3885,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /vite-plugin-ssr@0.4.116(vite@4.3.1):
-    resolution: {integrity: sha512-GtXvlUtwnLdrnfuodJhcs+kV1BXyoUhECjqdoC1pSU+7dRKyU7A9V6NmkT7yPbHu1s8bWSgqC/EP91F4DSt4rA==}
+  /vite-plugin-ssr@0.4.117(vite@4.3.1):
+    resolution: {integrity: sha512-jebuK9HGNTpwbNlhIygTmNX8W9ZJTClUv/V5MfvRbVGqL0jGkYbsKKwzRNbUDm5EMqblbFf9mMHt6KSIuh/YJQ==}
     engines: {node: '>=12.19.0'}
     hasBin: true
     peerDependencies:
@@ -3958,7 +3958,7 @@ packages:
     hasBin: true
     dependencies:
       axios: 0.25.0(debug@4.3.4)
-      joi: 17.9.1
+      joi: 17.9.2
       lodash: 4.17.21
       minimist: 1.2.8
       rxjs: 7.8.0

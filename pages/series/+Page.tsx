@@ -8,7 +8,6 @@ const Page: Component = () => {
   return (
     <div class="main-container">
       <h1>Series</h1>
-      <p>A vite-plugin-ssr app using Solid.</p>
     </div>
   );
 };
