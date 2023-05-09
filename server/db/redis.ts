@@ -1,9 +1,9 @@
 import chalk from "chalk";
-import { createClient } from "redis";
+import Redis from "ioredis";
 
 import { Post } from "@prisma/client";
 
-const redisClient = createClient();
+const redisClient = new Redis();
 
 redisClient.on("error", (err) => {
   if (err.code === "ECONNREFUSED") {
@@ -15,25 +15,17 @@ redisClient.on("error", (err) => {
 });
 
 export async function getRedisCache() {
-  await redisClient.connect();
-
   const cache = await redisClient.get("posts_published");
-
-  await redisClient.disconnect();
 
   return cache;
 }
 
 export async function initializePublishedPostCache(posts: Post[]) {
-  await redisClient.connect();
-
   const publishedPosts = posts.filter((p) => p.published);
 
   await redisClient.set("posts_published", JSON.stringify(publishedPosts));
 
   console.log(chalk.green(`💾 [redis][startup]: posts cached in redis`));
-
-  await redisClient.disconnect();
 }
 
 export { redisClient };
